@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CityContent from '../components/CityContent.astro';
+import {getLoanTerms} from '../data/loanTerms';
+import {brand,domain,cities} from '../data/cities';
+const title='Fix and Flip Loans in North Georgia, GA | North Georgia Fix & Flip Loan';
+const loanTerms = await getLoanTerms();
+const description='Connect with potential fix and flip loan options for North Georgia investment properties. Share your purchase and renovation plan for a project-specific review.';
+const businessId=`https://${domain}/#business`;
+const faq=[{q:'Are you the lender?',a:'No. We connect investors with one lending partner. Our lending partner determines eligibility and terms.'},{q:'Does submitting guarantee funding?',a:'No. A submission starts a review, not an approval or commitment.'}];
+const jsonld=[{'@context':'https://schema.org','@type':'WebSite',name:brand,url:`https://${domain}/`},{'@context':'https://schema.org','@type':'FinancialService','@id':businessId,name:brand,url:`https://${domain}/`,areaServed:cities.map(c=>({'@type':'City',name:c.name,containedInPlace:{'@type':'State',name:'Georgia'}})),description:'Fix and flip funding connections for real estate investors across North Georgia. Not a direct lender.'},{'@context':'https://schema.org','@type':'Service',serviceType:'Fix and flip loan connection service',provider:{'@id':businessId},areaServed:cities.map(c=>({'@type':'City',name:c.name,containedInPlace:{'@type':'State',name:'Georgia'}}))},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))}];
+---
+<Base title={title} description={description} path="/" jsonld={jsonld}><Header/><main><CityContent cityName="North Georgia" location="Homepage" intro="In North Georgia, a Ringgold subdivision, a Trenton valley house and a LaFayette renovation do not share one resale market. A lender needs the exact property, work plan and supported exit. We connect investors with one lending partner for Georgia properties in Catoosa, Dade and Walker counties." angle="The service area follows Georgia communities from Fort Oglethorpe and Chickamauga to Rising Fawn and Lookout Mountain. Valley lots, mountain roads and established town blocks can change the repair plan and which finished-home sales make a fair comparison." caution="Confirm whether the property sits within a city or an unincorporated county area before checking permits. Historic context, grades and utilities may matter on a specific parcel. We do not serve Tennessee properties through this Georgia site or promise an approval." showCityGrid={true} loanTerms={loanTerms}/></main><Footer/></Base>
