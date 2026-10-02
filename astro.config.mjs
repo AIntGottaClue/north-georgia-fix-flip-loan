@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://northgeorgia.privatemoneyloans.click',
+  site: 'https://northgeorgiafixandflip.loansapp.cfd',
   output: 'server',
   adapter: cloudflare(),
   trailingSlash: 'always',

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://northgeorgia.privatemoneyloans.click/sitemap.xml
+Sitemap: https://northgeorgiafixandflip.loansapp.cfd/sitemap.xml
